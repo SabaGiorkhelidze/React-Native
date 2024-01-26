@@ -11,7 +11,12 @@ import {
 import { COLORS } from "../../utils/Colors";
 
 const CustomInput = ({ label, placeholder, isPassword }) => {
-  const [isPasswordVissible, setIsPasswordVisible] = useState(false)
+  const [isPasswordVissible, setIsPasswordVisible] = useState(false);
+
+  const onEyePress = () => {
+    setIsPasswordVisible(!isPasswordVissible);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -22,12 +27,19 @@ const CustomInput = ({ label, placeholder, isPassword }) => {
           style={styles.input}
         />
 
-
-        <Pressable>
-          <Image source={require('../../assets/eye.png')}/>
-        </Pressable>
+        {isPassword ? (
+          <Pressable onPress={onEyePress}>
+            <Image
+              style={styles.eye}
+              source={
+                isPasswordVissible
+                  ? require("../../assets/eye.png")
+                  : require("../../assets/eye_closed.png")
+              }
+            />
+          </Pressable>
+        ) : null}
       </View>
-      
     </View>
   );
 };
@@ -43,18 +55,26 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     color: COLORS.blue,
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: "500",
   },
 
   inputContainer: {
     borderWidth: 1,
     borderColor: COLORS.gray,
     borderRadius: 14,
+    flexDirection: "row",
+    alignItems: "center",
   },
   input: {
-    // borderWidth: 1,
+    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 20,
+
     // borderColor: 'yellow',
+  },
+  eye: {
+    width: 24,
+    height: 24,
+    marginHorizontal: 16,
   },
 });
