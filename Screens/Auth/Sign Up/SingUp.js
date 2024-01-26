@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -9,14 +9,31 @@ import {
 } from "react-native";
 import { COLORS } from "../../../utils/Colors";
 import AuthHeader from "../../../Components/AuthHeader/AuthHeader";
-import CustomInput from '../../../Components/Input/CustomInput'
+import CustomInput from "../../../Components/Input/CustomInput";
+import Checkbox from "../../../Components/Checkbox/Checkbox";
+
 const SignUp = () => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <View style={styles.container}>
-      <AuthHeader title={'SignUp'}/>
-      <CustomInput label={'Name'} placeholder={'John Doe'} isPassword={false}/>
-      <CustomInput label={'Email'} placeholder={'example@gmail.com'} isPassword={false}/>
-      <CustomInput label={'Password'} placeholder={'******'} isPassword={true}/>
+      <AuthHeader title={"SignUp"} />
+      <CustomInput label={"Name"} placeholder={"John Doe"} isPassword={false} />
+      <CustomInput
+        label={"Email"}
+        placeholder={"example@gmail.com"}
+        isPassword={false}
+      />
+      <CustomInput
+        label={"Password"}
+        placeholder={"******"}
+        isPassword={true}
+      />
+
+      <View style={styles.agreeRow}>
+        <Checkbox checked={checked} onCheck={() => setChecked(!checked)} />
+        <Text style={styles.agreeText}>I agree with Terms and Privacy</Text>
+      </View>
     </View>
   );
 };
@@ -24,8 +41,15 @@ const SignUp = () => {
 export default SignUp;
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 24,
-
-    },
+  container: {
+    padding: 24,
+  },
+  agreeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  agreeText: {
+    color: COLORS.blue,
+    marginHorizontal: 13,
+  },
 });
