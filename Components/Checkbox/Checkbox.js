@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {
   View,
   Text,
@@ -28,7 +28,7 @@ const Checkbox = ({ checked, onCheck }) => {
   );
 };
 
-export default Checkbox;
+export default memo(Checkbox);
 
 const styles = StyleSheet.create({
   container: {

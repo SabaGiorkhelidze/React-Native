@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {
   View,
   Text,
@@ -23,7 +23,7 @@ const AuthHeader = ({ title, onBackPress }) => {
   );
 };
 
-export default AuthHeader;
+export default memo(AuthHeader);
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: COLORS.blue,
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: '500',
     paddingHorizontal: 16,
   },

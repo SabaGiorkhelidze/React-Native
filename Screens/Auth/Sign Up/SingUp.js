@@ -11,13 +11,15 @@ import { COLORS } from "../../../utils/Colors";
 import AuthHeader from "../../../Components/AuthHeader/AuthHeader";
 import CustomInput from "../../../Components/Input/CustomInput";
 import Checkbox from "../../../Components/Checkbox/Checkbox";
+import CustomButton from "../../../Components/Button/CustomButton";
+import Separator from "../../../Components/Separator/Separator";
 
 const SignUp = () => {
   const [checked, setChecked] = useState(false);
 
   return (
     <View style={styles.container}>
-      <AuthHeader title={"SignUp"} />
+      <AuthHeader title={"Sign Up"} />
       <CustomInput label={"Name"} placeholder={"John Doe"} isPassword={false} />
       <CustomInput
         label={"Email"}
@@ -34,6 +36,10 @@ const SignUp = () => {
         <Checkbox checked={checked} onCheck={() => setChecked(!checked)} />
         <Text style={styles.agreeText}>I agree with Terms and Privacy</Text>
       </View>
+
+      <CustomButton style={styles.button} title={'sing Up'} />
+
+      <Separator text={'or sign up with'}/>
     </View>
   );
 };
@@ -52,4 +58,7 @@ const styles = StyleSheet.create({
     color: COLORS.blue,
     marginHorizontal: 13,
   },
+  button: {
+    marginVertical: 20,
+  }
 });

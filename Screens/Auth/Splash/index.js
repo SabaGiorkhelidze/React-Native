@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
-import Button from "../../../Components/Button";
+import CustomButton from "../../../Components/Button/CustomButton";
 import { COLORS } from "../../../utils/Colors";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 const Splash = () => {
@@ -17,7 +17,7 @@ const Splash = () => {
         <Text style={[styles.title, styles.innerText]}> all you need </Text>
         <Text style={styles.title}>here</Text>
       </View>
-      <Button title="Sign Up" />
+      <CustomButton title="Sign Up" />
 
       <Pressable hitSlop={20}>
         <Text style={styles.footerText}>Sign in</Text>

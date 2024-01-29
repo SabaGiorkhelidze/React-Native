@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,memo } from "react";
 import {
   View,
   Text,
@@ -44,7 +44,7 @@ const CustomInput = ({ label, placeholder, isPassword }) => {
   );
 };
 
-export default CustomInput;
+export default memo(CustomInput);
 
 const styles = StyleSheet.create({
   container: {

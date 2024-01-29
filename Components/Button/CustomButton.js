@@ -1,15 +1,15 @@
-import React from "react";
+import React, {memo} from "react";
 import { View, Text, Image, Pressable, StyleSheet, TouchableOpacity } from "react-native";
 import { COLORS } from "../../utils/Colors";
-const Button = ({title, onPress}) => {
+const CustomButton = ({title, onPress, style}) => {
   return (
-    <TouchableOpacity activeOpacity={0.6} style={styles.container} onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.6} style={[styles.container, style]} onPress={onPress}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-export default Button;
+export default memo(CustomButton);
 
 
 
